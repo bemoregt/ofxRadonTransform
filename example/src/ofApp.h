@@ -1,12 +1,13 @@
 #pragma once
 
 #include "ofMain.h"
+#include "ofxRadonTransform.h"
 #include "ofxCv.h"
 #include "ofxOpenCv.h"
 #include "ofxGui.h"
-#include "ofxRadonTransform.h"
 
 class ofApp : public ofBaseApp {
+
 public:
     void setup();
     void update();
@@ -23,15 +24,17 @@ public:
     void windowResized(int w, int h);
     void dragEvent(ofDragInfo dragInfo);
     void gotMessage(ofMessage msg);
-
+    
 private:
-    ofImage originalImage;
-    ofxRadonTransform radonTransform;
+    ofImage inputImage;      // 입력 이미지
+    ofImage outputImage;     // 라돈 변환 결과 이미지
+    
+    ofxRadonTransform radonTransform;  // 라돈 변환 객체
     
     ofxPanel gui;
-    ofxButton loadImageButton;
-    ofxIntSlider angleSlider;
+    ofxIntSlider angleResolution;  // 각도 해상도 슬라이더
+    ofxButton computeButton;       // 계산 버튼
+    ofxToggle autoUpdate;         // 자동 업데이트 토글
     
-    void loadImageButtonPressed();
-    void angleSliderChanged(int &value);
+    void onComputeButtonPressed(); // 계산 버튼 이벤트 핸들러
 };
