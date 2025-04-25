@@ -3,10 +3,6 @@
 
 //========================================================================
 int main() {
-    ofSetupOpenGL(1024, 512, OF_WINDOW);      // <-------- setup the GL context
-
-    // this kicks off the running of my app
-    // can be OF_WINDOW or OF_FULLSCREEN
-    // pass in width and height too:
+    ofSetupOpenGL(860, 520, OF_WINDOW);  // 창 크기 변경
     ofRunApp(new ofApp());
 }
